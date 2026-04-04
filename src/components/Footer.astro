@@ -23,7 +23,7 @@
 					<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 				</ul>
 			</section>
-			<p class="copyright">
+			<p class="copyright desktop">
 				&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.
 			</p>
 		</div>
@@ -48,6 +48,9 @@
 					</ul>
 				</form>
 			</section>
+			<p class="copyright mobile">
+				&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.
+			</p>
 		</div>
 	</div>
 	<div class="closer" @click="$store.panel.hide()"></div>
@@ -66,6 +69,21 @@
 
 		a {
 			color: inherit;
+		}
+
+		&.desktop {
+			@include breakpoint('<=medium') {
+				display: none;
+			}
+		}
+
+		&.mobile {
+			display: none;
+
+			@include breakpoint('<=medium') {
+				display: block;
+				margin-top: 2em;
+			}
 		}
 	}
 }

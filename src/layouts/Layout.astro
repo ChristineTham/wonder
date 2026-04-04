@@ -39,13 +39,6 @@ const { title } = Astro.props;
 		<div id="wrapper">
 			<slot />
 		</div>
-
-		<!-- Scripts -->
-		<script is:inline src="/js/browser.min.js"></script>
-		<script is:inline src="/js/breakpoints.min.js"></script>
-		<script>
-			import '../scripts/main.js';
-		</script>
 	</body>
 </html>
 
@@ -375,21 +368,6 @@ const { title } = Astro.props;
 				visibility: hidden;
 				width: 100%;
 				z-index: 1;
-
-				body.ie & {
-					background: _palette(bg-ie-overlay-alt);
-				}
-			}
-
-			body.modal-active & {
-				@include vendor('filter', 'blur(8px)');
-
-				&:after {
-					@include vendor('pointer-events', 'auto');
-					opacity: 1;
-					visibility: visible;
-					z-index: _misc(z-index-base) + 3;
-				}
 			}
 
 			&:before {

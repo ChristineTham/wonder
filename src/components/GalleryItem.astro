@@ -6,15 +6,26 @@ interface Props {
 	description: string;
 	width: number;
 	height: number;
+	dataPosition?: string;
 }
 
-const { href, src, title, description, width, height } = Astro.props;
+const { href, src, title, description, width, height, dataPosition } = Astro.props;
 ---
 <article class="thumb">
-	<a href={href} class="image" data-pswp-width={width} data-pswp-height={height} target="_blank"><img src={src} alt="" /></a>
+	<a 
+		href={href} 
+		class="image" 
+		style={`background-image: url(${src}); background-position: ${dataPosition || 'center'};`}
+		data-pswp-width={width} 
+		data-pswp-height={height} 
+		target="_blank"
+	>
+		<img src={src} alt="" style="display: none;" />
+	</a>
 	<h2>{title}</h2>
 	<p>{description}</p>
 </article>
+
 
 <style lang="scss">
 	@use 'sass:math';
