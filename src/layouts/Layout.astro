@@ -18,24 +18,24 @@ import '../styles/main.scss';
 		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
 	</head>
 	<body 
-		x-data="{ 
+		x-data={`{ 
 			isPreload: true, 
 			isResizing: false,
 			resizeTimeout: null
-		}" 
-		:class="{ 
+		}`} 
+		:class={`{ 
 			'is-preload': isPreload, 
 			'is-resizing': isResizing, 
 			'content-active': $store.panel.active 
-		}"
-		@load.window="setTimeout(() => isPreload = false, 100)"
-		@resize.window="
+		}`}
+		@load.window={`setTimeout(() => isPreload = false, 100)`}
+		@resize.window={`
 			clearTimeout(resizeTimeout); 
 			isResizing = true; 
 			resizeTimeout = setTimeout(() => isResizing = false, 100)
-		"
-		@keyup.escape.window="$store.panel.hide()"
-		@click="$store.panel.active ? $store.panel.hide() : null"
+		`}
+		@keyup.escape.window={`$store.panel.hide()`}
+		@click={`$store.panel.active ? $store.panel.hide() : null`}
 	>
 		<div id="wrapper">
 			<slot />
