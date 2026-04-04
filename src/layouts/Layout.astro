@@ -44,13 +44,14 @@ const { title } = Astro.props;
 
 <style is:global lang="scss">
 	@use 'sass:math';
+	@use '../styles/fontawesome';
 	@import '../styles/libs';
 
 	[x-cloak] { display: none !important; }
 
 	.is-preload * {
-		@include vendor('transition', 'none !important');
-		@include vendor('animation', 'none !important');
+		transition: none !important;
+		animation: none !important;
 	}
 
 	/* Reset */
@@ -158,16 +159,16 @@ const { title } = Astro.props;
 			// Stops initial animations until page loads.
 				&.is-preload {
 					*, *:before, *:after {
-						@include vendor('animation', 'none !important');
-						@include vendor('transition', 'none !important');
+						animation: none !important;
+						transition: none !important;
 					}
 				}
 
 			// Prevents animations while resizing.
 				&.is-resizing {
 					*, *:before, *:after {
-						@include vendor('animation', 'none !important');
-						@include vendor('transition', 'none !important');
+						animation: none !important;
+						transition: none !important;
 					}
 				}
 
@@ -189,10 +190,7 @@ const { title } = Astro.props;
 		}
 
 		a {
-			@include vendor('transition', (
-				'color #{_duration(transition)} ease-in-out',
-				'border-bottom-color #{_duration(transition)} ease-in-out'
-			));
+			transition: color #{_duration(transition)} ease-in-out, border-bottom-color #{_duration(transition)} ease-in-out;
 			border-bottom: dotted 1px;
 			color: _palette(accent1);
 			text-decoration: none;
@@ -343,20 +341,12 @@ const { title } = Astro.props;
 	/* Wrapper */
 
 		#wrapper {
-			@include vendor('transition', (
-				'-moz-filter #{_duration(panel)} ease',
-				'-webkit-filter #{_duration(panel)} ease',
-				'-ms-filter #{_duration(panel)} ease',
-				'filter #{_duration(panel)} ease'
-			));
+			transition: -moz-filter #{_duration(panel)} ease, -webkit-filter #{_duration(panel)} ease, -ms-filter #{_duration(panel)} ease, filter #{_duration(panel)} ease;
 			position: relative;
 
 			&:after {
-				@include vendor('pointer-events', 'none');
-				@include vendor('transition', (
-					'opacity #{_duration(modal)} ease',
-					'visibility #{_duration(modal)}',
-				));
+				pointer-events: none;
+				transition: opacity #{_duration(modal)} ease, visibility #{_duration(modal)};
 				background: _palette(bg-overlay-alt);
 				content: '';
 				display: block;
@@ -371,13 +361,9 @@ const { title } = Astro.props;
 			}
 
 			&:before {
-				@include vendor('animation', 'spinner 1s infinite linear !important');
-				@include vendor('pointer-events', 'none');
-				@include vendor('transition', (
-					'top 0.75s ease-in-out',
-					'opacity 0.35s ease-out',
-					'visibility 0.35s'
-				));
+				animation: spinner 1s infinite linear !important;
+				pointer-events: none;
+				transition: top 0.75s ease-in-out, opacity 0.35s ease-out, visibility 0.35s;
 				background-image: url('/images/system/spinner.svg');
 				background-position: center;
 				background-repeat: no-repeat;
@@ -399,8 +385,8 @@ const { title } = Astro.props;
 
 			body.is-preload & {
 				&:before {
-					@include vendor('transition', 'opacity 1s ease-out !important');
-					@include vendor('transition-delay', '0.5s !important');
+					transition: opacity 1s ease-out !important;
+					transition-delay: 0.5s !important;
 					opacity: 0.25;
 					top: 50%;
 					visibility: visible;
@@ -563,3 +549,4 @@ const { title } = Astro.props;
 			}
 		}
 </style>
+

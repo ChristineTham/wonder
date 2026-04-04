@@ -91,8 +91,8 @@
 /* Panel */
 .panel {
 	@include padding(4em, 4em);
-	@include vendor('transform', 'translateY(100vh)');
-	@include vendor('transition', 'transform #{_duration(panel)} ease');
+	transform: translateY(100vh);
+	transition: transform #{_duration(panel)} ease;
 	-webkit-overflow-scrolling: touch;
 	background: color.adjust(_palette(bg), $alpha: -0.025);
 	bottom: _size(header);
@@ -104,7 +104,7 @@
 	z-index: _misc(z-index-base) + 1;
 
 	&.active {
-		@include vendor('transform', 'translateY(1px)');
+		transform: translateY(1px);
 	}
 
 	> .inner {
@@ -113,7 +113,7 @@
 		width: 75em;
 
 		&.split {
-			@include vendor('display', 'flex');
+			display: flex;
 
 			> div {
 				margin-left: 4em;
@@ -127,7 +127,7 @@
 	}
 
 	> .closer {
-		@include vendor('transition', 'opacity #{_duration(transition)} ease-in-out');
+		transition: opacity #{_duration(transition)} ease-in-out;
 		background-image: url('/images/system/close.svg');
 		background-position: center;
 		background-repeat: no-repeat;
@@ -166,7 +166,7 @@
 	@include breakpoint('<=medium') {
 		> .inner {
 			&.split {
-				@include vendor('flex-direction', 'column');
+				flex-direction: column;
 
 				> div {
 					margin-left: 0;
@@ -177,13 +177,13 @@
 	}
 
 	@include breakpoint('<=small') {
-		@include vendor('transform', 'translateY(-100vh)');
+		transform: translateY(-100vh);
 		@include padding(4em, 2em);
 		bottom: auto;
 		top: calc(#{_size(header)} - 1px);
 
 		&.active {
-			@include vendor('transform', 'translateY(0)');
+			transform: translateY(0);
 		}
 	}
 }
@@ -194,12 +194,8 @@ input[type="reset"],
 input[type="button"],
 button,
 .button {
-	@include vendor('appearance', 'none');
-	@include vendor('transition', (
-		'background-color #{_duration(transition)} ease-in-out',
-		'box-shadow #{_duration(transition)} ease-in-out',
-		'color #{_duration(transition)} ease-in-out'
-	));
+	appearance: none;
+	transition: background-color #{_duration(transition)} ease-in-out, box-shadow #{_duration(transition)} ease-in-out, color #{_duration(transition)} ease-in-out;
 	background-color: transparent;
 	border: 0;
 	border-radius: 0;
@@ -264,7 +260,7 @@ button,
 
 	&.disabled,
 	&:disabled {
-		@include vendor('pointer-events', 'none');
+		pointer-events: none;
 		opacity: 0.35;
 	}
 }
@@ -280,14 +276,14 @@ form {
 	> .fields  {
 		$gutter: (_size(element-margin) * 0.75);
 
-		@include vendor('display', 'flex');
-		@include vendor('flex-wrap', 'wrap');
+		display: flex;
+		flex-wrap: wrap;
 		width: calc(100% + #{$gutter * 2});
 		margin: ($gutter * -1) 0 _size(element-margin) ($gutter * -1);
 
 		> .field {
-			@include vendor('flex-grow', '0');
-			@include vendor('flex-shrink', '0');
+			flex-grow: 0;
+			flex-shrink: 0;
 			padding: $gutter 0 0 $gutter;
 			width: calc(100% - #{$gutter * 1});
 
@@ -348,7 +344,7 @@ input[type="search"],
 input[type="url"],
 select,
 textarea {
-	@include vendor('appearance', 'none');
+	appearance: none;
 	background: _palette(border-bg);
 	border: 0;
 	border-radius: 0;
@@ -409,7 +405,7 @@ textarea {
 
 input[type="checkbox"],
 input[type="radio"], {
-	@include vendor('appearance', 'none');
+	appearance: none;
 	display: block;
 	float: left;
 	margin-right: -2em;
@@ -496,7 +492,7 @@ input[type="radio"] {
 
 /* Actions */
 ul.actions {
-	@include vendor('display', 'flex');
+	display: flex;
 	cursor: default;
 	list-style: none;
 	margin-left: (_size(element-margin) * -0.5);
@@ -508,7 +504,7 @@ ul.actions {
 	}
 
 	&.special {
-		@include vendor('justify-content', 'center');
+		justify-content: center;
 		width: 100%;
 		margin-left: 0;
 
@@ -520,7 +516,7 @@ ul.actions {
 	}
 
 	&.stacked {
-		@include vendor('flex-direction', 'column');
+		flex-direction: column;
 		margin-left: 0;
 
 		li {
@@ -536,8 +532,8 @@ ul.actions {
 		width: calc(100% + #{_size(element-margin) * 0.5});
 
 		li {
-			@include vendor('flex-grow', '1');
-			@include vendor('flex-shrink', '1');
+			flex-grow: 1;
+			flex-shrink: 1;
 			width: 100%;
 
 			> * {
@@ -552,13 +548,13 @@ ul.actions {
 
 	@include breakpoint('<=xsmall') {
 		&:not(.fixed) {
-			@include vendor('flex-direction', 'column');
+			flex-direction: column;
 			margin-left: 0;
 			width: 100% !important;
 
 			li {
-				@include vendor('flex-grow', '1');
-				@include vendor('flex-shrink', '1');
+				flex-grow: 1;
+				flex-shrink: 1;
 				padding: (_size(element-margin) * 0.5) 0 0 0;
 				text-align: center;
 				width: 100%;

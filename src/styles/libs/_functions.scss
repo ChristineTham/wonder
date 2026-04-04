@@ -2,11 +2,6 @@
 @use 'sass:list';
 @use 'sass:map';
 
-// Note: This file depends on global variables ($duration, $font, etc) 
-// that should be provided by the global scope (e.g. vars.scss).
-// In modern Sass, it's better to pass them in or use them from a module.
-// But for now, let's keep it as is and see if @forward 'vars' in _libs.scss helps.
-
 /// Removes a specific item from a list.
 /// @author Hugo Giraudel
 /// @param {list} $list List.
@@ -28,7 +23,7 @@
 	@else {
 
 		$result: ();
-		$index: if(sass($index < 0): list.length($list) + $index + 1; else: $index);
+		$index: if($index < 0, list.length($list) + $index + 1, $index);
 
 		@for $i from 1 through list.length($list) {
 

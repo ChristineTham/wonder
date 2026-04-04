@@ -27,8 +27,8 @@
 	}
 
 	#header {
-		@include vendor('transform', 'translateY(0)');
-		@include vendor('transition', 'transform #{_duration(header)} ease');
+		transform: translateY(0);
+		transition: transform #{_duration(header)} ease;
 		-moz-user-select: none;
 		-ms-user-select: none;
 		-webkit-user-select: none;
@@ -44,7 +44,7 @@
 		z-index: _misc(z-index-base) + 2;
 
 		:global(body.is-preload) & {
-			@include vendor('transform', 'translateY(#{_size(header)})');
+			transform: translateY(_size(header));
 		}
 
 		h1 {
@@ -80,7 +80,7 @@
 					padding: 0;
 
 					a {
-						@include vendor('transition', 'background-color #{_duration(panel)} ease');
+						transition: background-color #{_duration(panel)} ease;
 						border: 0;
 						color: _palette(fg-bold);
 						display: inline-block;
@@ -115,14 +115,14 @@
 		}
 
 		#header {
-			@include vendor('transform', 'translateY(0)');
+			transform: translateY(0);
 			bottom: auto;
 			height: _size(header);
 			padding: 0 1em;
 			top: 0;
 
 			:global(body.is-preload) & {
-				@include vendor('transform', 'translateY(#{_size(header) * -0.85})');
+				transform: translateY(_size(header) * -0.85);
 			}
 
 			h1 {

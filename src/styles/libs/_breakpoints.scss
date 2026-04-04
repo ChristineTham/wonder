@@ -120,12 +120,12 @@
 										$media: 'screen and (min-width: ' + ($y + 1) + ')';
 									}
 
-								// Less than (< 0 / invalid)
+								// Less than (< y)
 									@else if ($op == 'lt') {
-										$media: 'screen and (max-width: -1px)';
+										$media: 'screen and (max-width: ' + ($y - 1) + ')';
 									}
 
-								// Not (> y)
+								// Not (not <= y)
 									@else if ($op == 'not') {
 										$media: 'screen and (min-width: ' + ($y + 1) + ')';
 									}
@@ -145,14 +145,14 @@
 										$media: 'screen and (min-width: ' + $x + ')';
 									}
 
-								// Less than or equal (<= inf / anything)
+								// Less than or equal (<= x / anything)
 									@else if ($op == 'lte') {
 										$media: 'screen';
 									}
 
-								// Greater than (> inf / invalid)
+								// Greater than (> x)
 									@else if ($op == 'gt') {
-										$media: 'screen and (max-width: -1px)';
+										$media: 'screen and (min-width: ' + ($x + 1) + ')';
 									}
 
 								// Less than (< x)
@@ -160,7 +160,7 @@
 										$media: 'screen and (max-width: ' + ($x - 1) + ')';
 									}
 
-								// Not (< x)
+								// Not (not >= x)
 									@else if ($op == 'not') {
 										$media: 'screen and (max-width: ' + ($x - 1) + ')';
 									}
@@ -195,7 +195,7 @@
 										$media: 'screen and (max-width: ' + ($x - 1) + ')';
 									}
 
-								// Not (< x and > y)
+								// Not (not >= x and <= y)
 									@else if ($op == 'not') {
 										$media: 'screen and (max-width: ' + ($x - 1) + '), screen and (min-width: ' + ($y + 1) + ')';
 									}

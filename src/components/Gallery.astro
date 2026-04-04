@@ -111,22 +111,14 @@ const items = [
 	@import '../styles/libs';
 
 	#main {
-		@include vendor('transition', (
-			'-moz-filter #{_duration(panel)} ease',
-			'-webkit-filter #{_duration(panel)} ease',
-			'-ms-filter #{_duration(panel)} ease',
-			'filter #{_duration(panel)} ease'
-		));
-		@include vendor('display', 'flex');
-		@include vendor('flex-wrap', 'wrap');
+		transition: -moz-filter #{_duration(panel)} ease, -webkit-filter #{_duration(panel)} ease, -ms-filter #{_duration(panel)} ease, filter #{_duration(panel)} ease;
+		display: flex;
+		flex-wrap: wrap;
 		-webkit-tap-highlight-color: rgba(255,255,255,0);
 
 		&:after {
-			@include vendor('pointer-events', 'none');
-			@include vendor('transition', (
-				'opacity #{_duration(panel)} ease',
-				'visibility #{_duration(panel)}',
-			));
+			pointer-events: none;
+			transition: opacity #{_duration(panel)} ease, visibility #{_duration(panel)};
 			background: _palette(bg-overlay);
 			content: '';
 			display: block;
@@ -141,10 +133,10 @@ const items = [
 		}
 
 		:global(body.content-active) & {
-			@include vendor('filter', 'blur(6px)');
+			filter: blur(6px);
 
 			&:after {
-				@include vendor('pointer-events', 'auto');
+				pointer-events: auto;
 				opacity: 1;
 				visibility: visible;
 			}
@@ -156,14 +148,14 @@ const items = [
 
 			// Use :global(.thumb) because .thumb is a child component and scoped by its own styles
 			:global(.thumb) {
-				@include vendor('transition-delay', '#{$defaultDelay}');
+				transition-delay: #{$defaultDelay};
 				height: calc(#{math.div(100vh, ($rows + $pad))} - #{math.div(_size(header), $rows)});
 				min-height: $minHeight;
 				width: math.div(100%, $columns);
 
 				@for $i from 1 through (($rows * $columns) * 1.5) {
 					&:nth-child(#{$i}) {
-						@include vendor('transition-delay', '#{$baseDelay + ($i * _duration(thumb))}');
+						transition-delay: #{$baseDelay + ($i * _duration(thumb))};
 					}
 				}
 			}
