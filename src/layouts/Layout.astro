@@ -44,7 +44,6 @@ const { title } = Astro.props;
 
 <style is:global lang="scss">
 	@use 'sass:math';
-	@use '../styles/fontawesome';
 	@import '../styles/libs';
 
 	[x-cloak] { display: none !important; }
@@ -517,34 +516,6 @@ const { title } = Astro.props;
 
 				tfoot {
 					border-top: 0;
-				}
-			}
-		}
-
-	/* Icon */
-
-		.icon {
-			@include icon;
-			border-bottom: none;
-			position: relative;
-
-			> .label {
-				display: none;
-			}
-
-			&:before {
-				line-height: inherit;
-			}
-
-			&.solid {
-				&:before {
-					font-weight: 900;
-				}
-			}
-
-			&.brands {
-				&:before {
-					font-family: 'Font Awesome 5 Brands';
 				}
 			}
 		}

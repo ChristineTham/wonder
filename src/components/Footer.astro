@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
 <footer 
 	id="footer" 
@@ -15,12 +16,12 @@
 			<section>
 				<h2>Follow me on ...</h2>
 				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-					<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon-link"><Icon name="fa6-brands:x-twitter" class="icon" /><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon-link"><Icon name="fa6-brands:facebook-f" class="icon" /><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon-link"><Icon name="fa6-brands:instagram" class="icon" /><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon-link"><Icon name="fa6-brands:github" class="icon" /><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon-link"><Icon name="fa6-brands:dribbble" class="icon" /><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon-link"><Icon name="fa6-brands:linkedin-in" class="icon" /><span class="label">LinkedIn</span></a></li>
 				</ul>
 			</section>
 			<p class="copyright desktop">
@@ -404,7 +405,7 @@ textarea {
 }
 
 input[type="checkbox"],
-input[type="radio"], {
+input[type="radio"] {
 	appearance: none;
 	display: block;
 	float: left;
@@ -414,7 +415,6 @@ input[type="radio"], {
 	z-index: -1;
 
 	& + label {
-		@include icon(false, solid);
 		color: _palette(fg);
 		cursor: pointer;
 		display: inline-block;
@@ -428,12 +428,9 @@ input[type="radio"], {
 			background: _palette(border-bg);
 			content: '';
 			display: inline-block;
-			font-size: 0.8em;
 			height: (_size(element-height) * 0.75);
 			left: 0;
-			line-height: (_size(element-height) * 0.75);
 			position: absolute;
-			text-align: center;
 			top: 0;
 			width: (_size(element-height) * 0.75);
 		}
@@ -443,21 +440,12 @@ input[type="radio"], {
 		&:before {
 			background: _palette(accent1);
 			border-color: _palette(accent1);
-			color: _palette(fg-bold);
-			content: '\f00c';
 		}
 	}
 
 	&:focus + label {
 		&:before {
 			box-shadow: 0 0 0 2px _palette(accent1);
-		}
-	}
-}
-
-input[type="checkbox"] {
-	& + label {
-		&:before {
 		}
 	}
 }
@@ -599,11 +587,24 @@ ul.icons {
 			padding-right: 0;
 		}
 
-		.icon {
+		.icon-link {
 			color: _palette(fg-light);
+			border: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-			&:before {
-				font-size: 1.5em;
+			.icon {
+				width: 1.5em;
+				height: 1.5em;
+			}
+
+			&:hover {
+				color: _palette(accent1) !important;
+			}
+
+			.label {
+				display: none;
 			}
 		}
 	}

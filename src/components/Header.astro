@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
 <header id="header">
 	<h1><a href="/"><strong>Multiverse</strong> by HTML5 UP</a></h1>
@@ -7,12 +8,12 @@
 			<li>
 				<a 
 					href="#footer" 
-					class="icon solid fa-info-circle" 
 					@click.prevent.stop="$store.panel.toggle()"
 					:class="{ 'active': $store.panel.active }"
 					style="cursor: pointer;"
 				>
 					About
+					<Icon name="fa6-solid:circle-info" class="icon" />
 				</a>
 			</li>
 		</ul>
@@ -83,17 +84,17 @@
 						transition: background-color #{_duration(panel)} ease;
 						border: 0;
 						color: _palette(fg-bold);
-						display: inline-block;
+						display: flex;
+						align-items: center;
 						letter-spacing: _font(kerning-alt);
 						padding: 0 1.65em;
 						text-transform: uppercase;
 
-						&.icon {
-							&:before {
-								color: _palette(fg-light);
-								float: right;
-								margin-left: 0.75em;
-							}
+						.icon {
+							color: _palette(fg-light);
+							width: 1em;
+							height: 1em;
+							margin-left: 0.75em;
 						}
 
 						&:hover {
