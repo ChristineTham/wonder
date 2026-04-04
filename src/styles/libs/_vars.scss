@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // Misc.
 	$misc: (
 		z-index-base:		10000,
@@ -66,10 +68,10 @@
 	$palette: (
 		bg:					#242629,
 		bg-alt:				#1f2224,
-		bg-overlay:			transparentize(#242629, 0.75),
-		bg-overlay-alt:		transparentize(#242629, 0.5),
-		bg-ie-overlay:		transparentize(#242629, 0.45),
-		bg-ie-overlay-alt:	transparentize(#242629, 0.2),
+		bg-overlay:			color.adjust(#242629, $alpha: -0.75),
+		bg-overlay-alt:		color.adjust(#242629, $alpha: -0.5),
+		bg-ie-overlay:		color.adjust(#242629, $alpha: -0.45),
+		bg-ie-overlay-alt:	color.adjust(#242629, $alpha: -0.2),
 		fg:					#a0a0a1,
 		fg-bold:			#ffffff,
 		fg-medium:			#707071,
