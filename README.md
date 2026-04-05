@@ -4,6 +4,10 @@ This is a microsite featuring 21 Wonders of the World — spanning the Seven Won
 
 It is based on the **Multiverse** template from HTML5 UP, converted into an [Astro](https://astro.build) project. It retains the slick, one-page gallery design and custom panel system while leveraging Astro's component-based architecture and optimized build pipeline.
 
+## Screenshot
+
+![Wonders of the World](screenshot.png)
+
 ## Features
 
 - **Lightweight Logic**: jQuery has been removed and replaced with [Alpine.js](https://alpinejs.dev) for state management and interactivity.
