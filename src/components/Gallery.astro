@@ -234,6 +234,9 @@ const contentStores = await Promise.all(
 </script>
 
 <style is:global>
+
+	/* stylelint-disable selector-class-pattern */
+
 	/* PhotoSwipe info button */
 	.pswp__button--info-button {
 		width: 50px;
@@ -250,9 +253,11 @@ const contentStores = await Promise.all(
 		transition: opacity 0.2s;
 		pointer-events: auto;
 	}
+
 	.pswp__button--info-button:hover {
 		opacity: 1;
 	}
+
 	.pswp__button--info-button svg {
 		width: 24px;
 		height: 24px;
@@ -273,11 +278,13 @@ const contentStores = await Promise.all(
 		pointer-events: auto;
 		box-sizing: border-box;
 	}
+
 	.pswp__caption strong {
 		display: block;
 		font-size: 1.1em;
 		margin-bottom: 0.2em;
 	}
+	/* stylelint-enable selector-class-pattern */
 
 	/* Info panel — matches Footer .panel */
 	#pswp-info-panel {
@@ -307,7 +314,7 @@ const contentStores = await Promise.all(
 	}
 
 	#pswp-info-panel .inner .panel-title {
-		color: #ffffff;
+		color: #fff;
 		font-size: 1.75em;
 		font-weight: 300;
 		margin-bottom: 0.5em;
@@ -352,21 +359,22 @@ const contentStores = await Promise.all(
 	}
 
 	#pswp-info-panel .closer svg line {
-		stroke: #ffffff;
+		stroke: #fff;
 		stroke-width: 1.5px;
 	}
 
-	@media (max-width: 1280px) {
+	@media (width <= 1280px) {
 		#pswp-info-panel { padding: 3em; }
 	}
 
-	@media (max-width: 480px) {
+	@media (width <= 480px) {
 		#pswp-info-panel {
 			padding: 4em 2em;
 			bottom: auto;
 			top: calc(4em - 1px);
 			transform: translateY(-100vh);
 		}
+
 		#pswp-info-panel.active {
 			transform: translateY(0);
 		}
