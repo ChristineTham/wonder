@@ -4,6 +4,10 @@ This is a microsite featuring 21 Wonders of the World — spanning the Seven Won
 
 It is based on the **Multiverse** template from HTML5 UP, converted into an [Astro](https://astro.build) project. It retains the slick, one-page gallery design and custom panel system while leveraging Astro's component-based architecture and optimized build pipeline.
 
+## Screenshot
+
+![Wonders of the World](screenshot.png)
+
 ## Features
 
 - **Lightweight Logic**: jQuery has been removed and replaced with [Alpine.js](https://alpinejs.dev) for state management and interactivity.
@@ -22,6 +26,13 @@ It is based on the **Multiverse** template from HTML5 UP, converted into an [Ast
   - Info panel style matches the Footer's panel design for visual consistency
   - Panel closes automatically when the lightbox closes
 - **Responsive**: Mobile-first design with synchronized breakpoints between CSS and JS.
+- **SEO**: Comprehensive SEO meta tags are added to every page via the shared `Layout.astro` component:
+  - `<meta name="description">` for search engines
+  - `<link rel="canonical">` to prevent duplicate-content issues
+  - Full **Open Graph** tags (`og:type`, `og:url`, `og:title`, `og:description`, `og:image`, `og:image:width`, `og:image:height`, `og:site_name`) for rich link previews on social platforms
+  - **Twitter Card** tags (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`) for Twitter/X rich previews
+  - Per-page `og:image` on individual wonder pages uses Astro's image pipeline to serve an optimised 1200×630 JPEG derived from the wonder's own high-resolution image
+  - A default `og:image` (`public/og-image.jpg`, 1200×630 JPEG converted from `screenshot.png`) is used on the gallery index page
 - **Linting**: ESLint (with `eslint-plugin-astro`, `@typescript-eslint`, and `eslint-plugin-jsx-a11y`) and stylelint (with `stylelint-config-standard-scss` and `stylelint-config-html`) are configured with rules appropriate for an Astro + SCSS project.
 
 ## Design Inspiration
