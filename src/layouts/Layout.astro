@@ -3,9 +3,23 @@ import noscriptStyles from '../scripts/noscript.css?url';
 
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
+	canonicalUrl?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = 'A microsite featuring 21 Wonders of the World — spanning the Seven Wonders of the Ancient World, the New Seven Wonders, and other celebrated monuments of human civilisation.',
+	image,
+	canonicalUrl,
+} = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://christham.net';
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const defaultOgImage = `${siteUrl}${basePath}/og-image.jpg`;
+const ogImage = image ?? defaultOgImage;
+const canonical = canonicalUrl ?? `${siteUrl}${basePath}/`;
 ---
 
 <!DOCTYPE html>
@@ -16,6 +30,25 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:site_name" content="Wonders of the World" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
 		<noscript><link rel="stylesheet" href={noscriptStyles} /></noscript>
 	</head>
 	<body 
