@@ -43,7 +43,7 @@ const optimizedFull = await getImage({ src: image, format: 'webp' });
 		overflow: hidden;
 		position: relative;
 
-		&:after {
+		&::after {
 			background-image: linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%);
 			pointer-events: none;
 			background-size: cover;

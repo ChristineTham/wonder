@@ -228,7 +228,7 @@ button,
 	&.icon {
 		padding-left: 1.35em;
 
-		&:before {
+		&::before {
 			margin-right: 0.5em;
 		}
 	}
@@ -424,7 +424,7 @@ input[type="radio"] {
 		padding-right: 0.75em;
 		position: relative;
 
-		&:before {
+		&::before {
 			background: _palette(border-bg);
 			content: '';
 			display: inline-block;
@@ -437,14 +437,14 @@ input[type="radio"] {
 	}
 
 	&:checked + label {
-		&:before {
+		&::before {
 			background: _palette(accent1);
 			border-color: _palette(accent1);
 		}
 	}
 
 	&:focus + label {
-		&:before {
+		&::before {
 			box-shadow: 0 0 0 2px _palette(accent1);
 		}
 	}
@@ -452,7 +452,7 @@ input[type="radio"] {
 
 input[type="radio"] {
 	& + label {
-		&:before {
+		&::before {
 			border-radius: 100%;
 		}
 	}
@@ -563,7 +563,7 @@ ul.actions {
 					width: 100%;
 
 					&.icon {
-						&:before {
+						&::before {
 							margin-left: -0.5rem;
 						}
 					}
